@@ -8,7 +8,7 @@ const readFile = promisify(fs.readFile)
 const inputURL = 'https://adventofcode.com/2019/day/1/input';
 const filePath = path.join(__dirname, 'input-day-1.txt');
 
-const Solution1 = async () => {
+const Solution = async () => {
     // Get Input data
     try {
         const inputData = await readFile(filePath, { encoding: 'utf-8' })
@@ -51,14 +51,17 @@ const recurfuelCalc = (total, val) => {
     // console.log('Total: '+ total +' Value: ' + val +'\n');
     newVal = fuelCalc(val)
     if (newVal <= 0) {
-        console.log('Returning total : ' + total + '\n');
-        console.log('Type of total: ' + typeof total + '\n');
+        // console.log('Returning total : ' + total + '\n');
+        // console.log('Type of total: ' + typeof total + '\n');
         return total
     }
     total = total + newVal
     return recurfuelCalc(total, newVal) // Ask fufa: return kyun karna; basic ques
 }
 
+/**
+ ** This method makes use of recursive fuelcalculator i.e. recurfuelCalc to find fuel requirements for each module and it's own fuel weight
+ */
 const FuelReqdWithFuelMassReducer = (accumulator, currentValue) => {
     currentValue = parseInt(currentValue)
     totalFuelForOneModule = recurfuelCalc(0, currentValue)
@@ -66,7 +69,7 @@ const FuelReqdWithFuelMassReducer = (accumulator, currentValue) => {
     return res
 }
 
-exports.Solution1 = Solution1() //TODO: lose the function paranthesis
+exports.Solution = Solution
 
 
 //TODO: Make this a REST Client.
