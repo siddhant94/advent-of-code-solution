@@ -16,15 +16,16 @@ const Solution = async () => {
         let parsedInp = await parseInputAsArray(inputData)
         // Get FuelRequirements for every element
         const res1 = parsedInp.reduce(FuelReqdReducer, 0)
-        console.log('Answer to the puzzle 1 is : \n')
+        console.log('Answer to the puzzle 1 is : ')
         console.log(res1);
-        console.log('Answer to puzzle 2 is : \n');
+        console.log('Answer to puzzle 2 is : ');
         const res2 = parsedInp.reduce(FuelReqdWithFuelMassReducer, 0);
         console.log(res2);
     } catch (err) {
         console.log("Uh oh! Error \n")
         console.log(err)
     }
+    return Promise.resolve()
 }
 
 const parseInputAsArray = (data) => {

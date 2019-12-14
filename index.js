@@ -1,9 +1,14 @@
 const day1 = require('./day-1')
 const day2 = require('./day-2')
 
-console.log("Welcome to Advent of Code Solutions \n");
-console.log("Hitting the first solution \n")
-day1.Solution()
+const main = async () => {
+    console.log("Welcome to Advent of Code Solutions \n");
+    console.log("Hitting the first solution \n")
+    await day1.Solution()
 
-console.log("Hitting the second solution \n")
-day2.Solution()
+    console.log("\nHitting the second solution \n")
+    await day2.Solution1()
+    await day2.Solution2()
+}
+
+main()
